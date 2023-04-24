@@ -1,0 +1,14 @@
+Package: CEnetwork
+Title: Construct and plot ceRNA network based on RNA-seq data
+Version: 0.1.0
+Authors@R: 
+    person("Li", "Lei", , "2020320243@stu.cqmu.edu.cn", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package use RNA-seq data to construct ceRNA network that target up-regulated mRNAs, down-regulated mRNAs or your mRNA of interest.
+License: `use_gpl3_license()` 
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Depends: 
+    R (>= 4.0)
+LazyData: true
