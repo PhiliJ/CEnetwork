@@ -69,3 +69,53 @@ write.table(DEmir$e, file = "DESeq2_miRNA_norm_exp.txt", sep = "\t")
 write.table(DEcirc$table, file = "DESeq2_circRNA_result.txt", sep = "\t")
 write.table(DEcirc$e, file = "DESeq2_circRNA_norm_exp.txt", sep = "\t")
 ```
+
+### Step 3 Construct ceRNA network
+For now we got 3 options. You can use `Cons_Up_net` to construct ceRNA network that targets up-regulated mRNAs, `Cons_Down_net`
+to construct ceRNA network that targets down-regulated mRNAs, and `Cons_my_net` to construct ceRNA network that targets your mRNA
+of interest. However, only one mRNA of interest is allowed for `Cons_my_net` since this is the beta version. I will update support
+for multiple mRNAs of interest, even miRNA, lncRNA or circRNA in the near future.
+
+You may use `my_mRNA =` to define your mRNA of interest.
+
+``` r
+UPnetwork <- Cons_Up_net()
+DOWNnetwork <- Cons_Down_net()
+mynetwork <- Cons_my_net(my_mRNA = "Lancl3")
+``` 
+
+### Step 4 Plot ceRNA network
+#### 4.1 Plot ceRNA network
+
+Use `plot_CEnetwork`. You may need to check the details using `?plot_CEnetwork`.
+
+Notebly, `plot_CEnetwork` add a constructed igraph object named "network" to the global environment of R, which is the basis of the next
+section `plot_highlighted_CEnetwork`. So, you must draw the basic ceRNA network plot using  `plot_CEnetwork` in the first place, then 
+`plot_highlighted_CEnetwork` will be functional.
+
+Please Check `?plot_CEnetwork` for more details.
+
+``` r
+plot_CEnetwork(net = UPnetwork,
+               pdf.name = "ceRNA_up.pdf")
+#or
+plot_CEnetwork(net = DOWNnetwork,
+               pdf.name = "ceRNA_down.pdf")
+#or
+plot_CEnetwork(net = mynetwork,
+               pdf.name = "ceRNA_my.pdf")
+``` 
+
+#### 4.2 Plot highlighted ceRNA network
+
+Use `plot_highlighted_CEnetwork`. `CEnetwork` will automatically determine whether your node of interest is a upstream or downstream. You may need to check the details using `?plot_highlighted_CEnetwork`.
+
+Notebly, `plot_highlighted_CEnetwork` is based on the igraph object named "network" (The network file constructed before using `plot_CEnetwork`). As a result, 
+on one hand, the highlighted node must be in the "network", which means if you drawed the "UP" network, the node you want to highlight must be in the 'ceRNA_up.pdf', or `plot_highlighted_CEnetwork` will not be functional. On the other hand, like mentioned before, you must use `plot_CEnetwork` in the first place, then `plot_highlighted_CEnetwork` will be functional.
+
+
+``` r
+plot_highlighted_CEnetwork(network, highlight_node = "Snhg14")
+plot_highlighted_CEnetwork(network, highlight_node = "mmu-miR-9-5p")
+plot_highlighted_CEnetwork(network, highlight_node = "Cdh1")
+```
