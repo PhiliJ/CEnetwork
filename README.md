@@ -102,14 +102,25 @@ Please Check `?plot_CEnetwork` for more details.
 ``` r
 plot_CEnetwork(net = UPnetwork,
                pdf.name = "ceRNA_up.pdf")
-#or
+``` 
+
+![ceRNA_UP](https://user-images.githubusercontent.com/39685949/233878611-39886426-6aec-450c-965e-a2cda3384e4e.png)
+
+``` r
 plot_CEnetwork(net = DOWNnetwork,
                pdf.name = "ceRNA_down.pdf")
-#or
+```
+
+![ceRNA_DOWN](https://user-images.githubusercontent.com/39685949/233878687-8f96ac9f-5fc8-4961-8f8c-12bc3b731f84.png)
+
+
+``` r
 plot_CEnetwork(net = mynetwork,
                pdf.name = "ceRNA_my.pdf")
 ``` 
-![ceRNA_UP](https://user-images.githubusercontent.com/39685949/233878611-39886426-6aec-450c-965e-a2cda3384e4e.png)
+
+![ceRNA_my](https://user-images.githubusercontent.com/39685949/233878725-1610d4a7-9933-4297-a8bb-460faab5c655.png)
+
 
 #### 4.2 Plot highlighted ceRNA network
 
@@ -118,11 +129,26 @@ Use `plot_highlighted_CEnetwork`. `CEnetwork` will automatically determine wheth
 Notebly, `plot_highlighted_CEnetwork` is based on the igraph object named "network" (The network file constructed before using `plot_CEnetwork`). As a result, 
 on one hand, the highlighted node must be in the "network", which means if you drawed the "UP" network, the node you want to highlight must be in the 'ceRNA_up.pdf', or `plot_highlighted_CEnetwork` will not be functional. On the other hand, like mentioned before, you must use `plot_CEnetwork` in the first place, then `plot_highlighted_CEnetwork` will be functional.
 
+For example, I chose to plot the network targets down-regulated mRNAs, then highlight some interested RNAs:
 
 ``` r
-plot_highlighted_CEnetwork(network, highlight_node = "Snhg14")
-plot_highlighted_CEnetwork(network, highlight_node = "mmu-miR-9-5p")
-plot_highlighted_CEnetwork(network, highlight_node = "Cdh1")
+plot_CEnetwork(net = DOWNnetwork,
+               pdf.name = "ceRNA_down.pdf")
+#Camk4: mRNA
+plot_highlighted_CEnetwork(network, highlight_node = "Camk4")
 ```
+![ceRNA_highlight_Camk4](https://user-images.githubusercontent.com/39685949/233879063-3241a642-5568-4ad2-a957-4d9a341725c0.png)
+
+
+``` r
+plot_highlighted_CEnetwork(network, highlight_node = "mmu-miR-9-5p")
+```
+![ceRNA_highlight_mmu-miR-9-5p](https://user-images.githubusercontent.com/39685949/233879122-afbb89d2-76fb-4611-a143-d6efb896d629.png)
+
+``` r
+#Gm21986: lncRNA
+plot_highlighted_CEnetwork(network, highlight_node = "Gm21986")
+```
+![ceRNA_highlight_Gm21986](https://user-images.githubusercontent.com/39685949/233879139-784bcf57-e9a3-4d8f-b787-491f317be3d7.png)
 
 
