@@ -109,6 +109,7 @@ plot_CEnetwork(net = DOWNnetwork,
 plot_CEnetwork(net = mynetwork,
                pdf.name = "ceRNA_my.pdf")
 ``` 
+![ceRNA_UP](https://user-images.githubusercontent.com/39685949/233878611-39886426-6aec-450c-965e-a2cda3384e4e.png)
 
 #### 4.2 Plot highlighted ceRNA network
 
@@ -123,4 +124,5 @@ plot_highlighted_CEnetwork(network, highlight_node = "Snhg14")
 plot_highlighted_CEnetwork(network, highlight_node = "mmu-miR-9-5p")
 plot_highlighted_CEnetwork(network, highlight_node = "Cdh1")
 ```
-[ceRNA_highlight_mmu-miR-9-5p.pdf](https://github.com/PhiliJ/CEnetwork/files/11305535/ceRNA_highlight_mmu-miR-9-5p.pdf)
+
+
