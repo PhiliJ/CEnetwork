@@ -76,13 +76,17 @@ to construct ceRNA network that targets down-regulated mRNAs, and `Cons_my_net` 
 of interest. However, only one mRNA of interest is allowed for `Cons_my_net` since this is the beta version. I will update support
 for multiple mRNAs of interest, even miRNA, lncRNA or circRNA in the near future.
 
-You may use `my_mRNA =` to define your mRNA of interest.
+You may use `my_mRNA =` to define your mRNA of interest. 
 
+`Cons_Up_net`, `Cons_Down_net` and `Cons_my_net` will also return an '.txt' file contains source nodes and targets, 
+and you can use this to generate network plot using other software like `Cytoscape`.
 ``` r
 UPnetwork <- Cons_Up_net()
 DOWNnetwork <- Cons_Down_net()
 mynetwork <- Cons_my_net(my_mRNA = "Lancl3")
 ``` 
+
+
 
 ### Step 4 Plot ceRNA network
 #### 4.1 Plot ceRNA network
