@@ -11,6 +11,7 @@ What you need to do is simple: just input the expression matrix of circRNA, lncR
 
 Li Lei <2020320243@stu.cqmu.edu.cn>
 
+Guozhi Zhao <2020320060@stu.cqmu.edu.cn>
 ### Installation:
 
 You can install `CEnetwork` like so:
