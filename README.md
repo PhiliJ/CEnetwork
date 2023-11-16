@@ -1,4 +1,4 @@
-# CEnetwork
+## CEnetwork <img src="CEnetwork_logo.png" align="right" height="200" />
 CEnetwork: an R package that constructs and plots ceRNA network based on RNA-seq data and ENCORI database.
 
 `CEnetwork` is an R package for Differential-expression analysis (DE-analysis) using DESeq2 (will update limma in the future), construction of ceRNA network (based on DE-analysis and ENCORI database) and ceRNA network plotting, all in one. 
